@@ -67,6 +67,7 @@ off_t initrd_size;
 const struct arch_map_entry arches[] = {
 	{ "aarch64", KEXEC_ARCH_ARM64 },
 	{ "aarch64_be", KEXEC_ARCH_ARM64 },
+	{ "armv8l", KEXEC_ARCH_ARM64 },
 	{ NULL, 0 },
 };
 
@@ -711,10 +712,10 @@ unsigned long arm64_locate_kernel_segment(struct kexec_info *info)
  */
 
 int arm64_load_other_segments(struct kexec_info *info,
-	unsigned long image_base)
+	unsigned long long image_base)
 {
 	int result;
-	unsigned long dtb_base;
+	unsigned long long dtb_base;
 	unsigned long hole_min;
 	unsigned long hole_max;
 	unsigned long initrd_end;

@@ -17,9 +17,9 @@
 #define BOOT_BLOCK_LAST_COMP_VERSION 16
 #define COMMAND_LINE_SIZE 2048 /* from kernel */
 
-#define KiB(x) ((x) * 1024UL)
-#define MiB(x) (KiB(x) * 1024UL)
-#define GiB(x) (MiB(x) * 1024UL)
+#define KiB(x) ((x) * 1024ULL)
+#define MiB(x) (KiB(x) * 1024ULL)
+#define GiB(x) (MiB(x) * 1024ULL)
 
 #define ULONGLONG_MAX	(~0ULL)
 
@@ -79,6 +79,6 @@ static inline void reset_vp_offset(void)
 int arm64_process_image_header(const struct arm64_image_header *h);
 unsigned long arm64_locate_kernel_segment(struct kexec_info *info);
 int arm64_load_other_segments(struct kexec_info *info,
-	unsigned long image_base);
+	unsigned long long image_base);
 
 #endif
